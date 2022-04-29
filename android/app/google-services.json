@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060175663321",
+    "project_id": "adlogin-994a2",
+    "storage_bucket": "adlogin-994a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060175663321:android:15ab0ace717bc99c7eeec8",
+        "android_client_info": {
+          "package_name": "com.example.adlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060175663321-vc1rp7a12pa41mu42k4fvq7tt2co7227.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDk8tNLjU1KzNiIvaVR-TJYZ6QN8UKcQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060175663321-vc1rp7a12pa41mu42k4fvq7tt2co7227.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
