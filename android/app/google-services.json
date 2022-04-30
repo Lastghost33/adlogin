@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1060175663321",
-    "project_id": "adlogin-994a2",
-    "storage_bucket": "adlogin-994a2.appspot.com"
+    "project_number": "77822549283",
+    "project_id": "adlogintut",
+    "storage_bucket": "adlogintut.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1060175663321:android:15ab0ace717bc99c7eeec8",
+        "mobilesdk_app_id": "1:77822549283:android:60a89cd3142e59adc78096",
         "android_client_info": {
           "package_name": "com.example.adlogin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1060175663321-vc1rp7a12pa41mu42k4fvq7tt2co7227.apps.googleusercontent.com",
+          "client_id": "77822549283-5fpp22c545p33l3m4o0q7ir0qbmrn0gn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adlogin",
+            "certificate_hash": "138fe03bfced605ce45a413a06a97af01701d6cd"
+          }
+        },
+        {
+          "client_id": "77822549283-n1ojd0628p45l19p9t7o6tiquc3l5qb9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDDk8tNLjU1KzNiIvaVR-TJYZ6QN8UKcQ4"
+          "current_key": "AIzaSyCwaFE21mbWpskkciCqFVdnztqNnQNwLyQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1060175663321-vc1rp7a12pa41mu42k4fvq7tt2co7227.apps.googleusercontent.com",
+              "client_id": "77822549283-n1ojd0628p45l19p9t7o6tiquc3l5qb9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

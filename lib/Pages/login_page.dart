@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:adlogin/Pages/home_page.dart';
 import 'package:adlogin/Pages/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +20,10 @@ class _LoginPageState extends State<LoginPage> {
   // text editing controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  // Firebase
+  final _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     // email field
@@ -25,7 +32,15 @@ class _LoginPageState extends State<LoginPage> {
       controller: emailController,
       style: TextStyle(color: Colors.grey),
       keyboardType: TextInputType.emailAddress,
-      //validator: () {},
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "Please Enter Your Email Master";
+        }
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.]+.[a-z]").hasMatch(value)) {
+          return ("Please Enter a Valid email Master");
+        }
+        return null;
+      },
       onSaved: (input) {
         emailController.text = input!;
       },
@@ -47,7 +62,16 @@ class _LoginPageState extends State<LoginPage> {
       controller: passwordController,
       style: TextStyle(color: Colors.grey),
       obscureText: true,
-      //validator: () {},
+      validator: (value) {
+        RegExp regex = RegExp(r'^.{6,}$');
+        if (value!.isEmpty) {
+          return ("Password is required for login Master");
+        }
+        if (!regex.hasMatch(value)) {
+          return ("Please Enter Valid Password Master (Min. 6 Character kyu!)  ");
+        }
+        return null;
+      },
       onSaved: (input) {
         passwordController.text = input!;
       },
@@ -68,7 +92,9 @@ class _LoginPageState extends State<LoginPage> {
       borderRadius: BorderRadius.circular(30),
       color: Colors.red,
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          signIn(emailController.text, passwordController.text);
+        },
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         minWidth: MediaQuery.of(context).size.width,
         child: Text(
@@ -141,5 +167,25 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+// login function
+  void signIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(
+                    msg: "Nya! Login Successful", timeInSecForIosWeb: 4),
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                ),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message, timeInSecForIosWeb: 5);
+      });
+    }
   }
 }
